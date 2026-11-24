@@ -25,6 +25,5 @@ th, td { text-align: left; padding: 8px; border-bottom: 1px solid #e5e5e5; }
 .dialog .row label { flex: 1; }
 .actions { display: flex; justify-content: flex-end; gap: 8px; }
 
-/* Browsers in RTL locales (e.g. Hebrew) render time/date fields right-to-left,
-   which visually swaps hours and minutes. Force left-to-right so 09:20 means 09:20. */
-input[type="time"], input[type="date"] { direction: ltr; text-align: left; }
+/* Keep the date field left-to-right in RTL-locale browsers (e.g. Hebrew). */
+input[type="date"] { direction: ltr; text-align: left; }

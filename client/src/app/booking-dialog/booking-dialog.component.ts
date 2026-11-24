@@ -34,6 +34,17 @@ export class BookingDialogComponent implements OnInit {
     bookedBy: ['', Validators.required],
   });
 
+  /**
+   * Times every 15 minutes: "00:00", "00:15", ... "23:45".
+   * A list instead of <input type="time">, because the browser's time field orders
+   * hours and minutes by the computer's region settings (on some machines minutes come first).
+   */
+  readonly timeOptions = Array.from({ length: 24 * 4 }, (_, i) => {
+    const hh = String(Math.floor(i / 4)).padStart(2, '0');
+    const mm = String((i % 4) * 15).padStart(2, '0');
+    return `${hh}:${mm}`;
+  });
+
   saving = false;
   error = '';
 

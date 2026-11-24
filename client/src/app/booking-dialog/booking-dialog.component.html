@@ -26,11 +26,19 @@
       <div class="row">
         <label>
           Start
-          <input type="time" formControlName="startTime" />
+          <select formControlName="startTime">
+            @for (t of timeOptions; track t) {
+              <option [value]="t">{{ t }}</option>
+            }
+          </select>
         </label>
         <label>
           End
-          <input type="time" formControlName="endTime" />
+          <select formControlName="endTime">
+            @for (t of timeOptions; track t) {
+              <option [value]="t">{{ t }}</option>
+            }
+          </select>
         </label>
       </div>
 
