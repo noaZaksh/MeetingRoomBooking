@@ -1,0 +1,62 @@
+<main>
+  <h1>Meeting room bookings</h1>
+
+  <div class="toolbar">
+    <label>
+      Room
+      <select [(ngModel)]="roomId" (ngModelChange)="loadBookings()">
+        @for (room of rooms; track room.id) {
+          <option [ngValue]="room.id">{{ room.name }}</option>
+        }
+      </select>
+    </label>
+
+    <label>
+      Date
+      <input type="date" [(ngModel)]="date" (ngModelChange)="loadBookings()" />
+    </label>
+
+    <button class="primary" (click)="dialogOpen = true" [disabled]="roomId === null">+ Add booking</button>
+  </div>
+
+  @if (error) {
+    <div class="error" role="alert">{{ error }}</div>
+  }
+
+  @if (loading) {
+    <p>Loading…</p>
+  } @else if (bookings.length === 0) {
+    <p class="empty">No bookings for this room on this day.</p>
+  } @else {
+    <table>
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Title</th>
+          <th>Booked by</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (b of bookings; track b.id) {
+          <tr>
+            <td>{{ b.start | date: 'HH:mm' }}–{{ b.end | date: 'HH:mm' }}</td>
+            <td>{{ b.title }}</td>
+            <td>{{ b.bookedBy }}</td>
+            <td><button (click)="cancel(b)">Cancel</button></td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+
+  @if (dialogOpen && roomId !== null) {
+    <app-booking-dialog
+      [rooms]="rooms"
+      [roomId]="roomId"
+      [date]="date"
+      (created)="onCreated($event)"
+      (closed)="dialogOpen = false"
+    />
+  }
+</main>

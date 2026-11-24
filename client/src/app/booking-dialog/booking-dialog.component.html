@@ -1,0 +1,55 @@
+<div class="backdrop" (click)="closed.emit()">
+  <div class="dialog" role="dialog" aria-labelledby="dialog-title" (click)="$event.stopPropagation()">
+    <h2 id="dialog-title">New booking</h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <label>
+        Room
+        <select formControlName="roomId">
+          @for (room of rooms; track room.id) {
+            <option [ngValue]="room.id">{{ room.name }}</option>
+          }
+        </select>
+      </label>
+
+      <label>
+        Title *
+        <input formControlName="title" maxlength="100" />
+        @if (missing('title')) { <span class="field-error">Title is required.</span> }
+      </label>
+
+      <label>
+        Date
+        <input type="date" formControlName="date" />
+      </label>
+
+      <div class="row">
+        <label>
+          Start
+          <input type="time" formControlName="startTime" />
+        </label>
+        <label>
+          End
+          <input type="time" formControlName="endTime" />
+        </label>
+      </div>
+
+      <label>
+        Booked by *
+        <input formControlName="bookedBy" maxlength="100" />
+        @if (missing('bookedBy')) { <span class="field-error">Name is required.</span> }
+      </label>
+
+      @if (error) {
+        <div class="error" role="alert">{{ error }}</div>
+      }
+
+      <div class="actions">
+        <button type="button" (click)="closed.emit()">Close</button>
+        <button type="submit" class="primary" [disabled]="saving">
+          {{ saving ? 'Saving…' : 'Save' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

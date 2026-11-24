@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetingRooms.Api", "MeetingRooms.Api\MeetingRooms.Api.csproj", "{EB989622-8CCD-4328-AD78-752811461A82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetingRooms.Api.Tests", "MeetingRooms.Api.Tests\MeetingRooms.Api.Tests.csproj", "{80A53C94-526E-4B2A-9F43-400F00AE2958}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB989622-8CCD-4328-AD78-752811461A82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB989622-8CCD-4328-AD78-752811461A82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB989622-8CCD-4328-AD78-752811461A82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB989622-8CCD-4328-AD78-752811461A82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80A53C94-526E-4B2A-9F43-400F00AE2958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80A53C94-526E-4B2A-9F43-400F00AE2958}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80A53C94-526E-4B2A-9F43-400F00AE2958}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80A53C94-526E-4B2A-9F43-400F00AE2958}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
